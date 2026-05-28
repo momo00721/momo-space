@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SwiperCarousel from '../../components/SwiperCarousel.astro';
+import { getCollection } from 'astro:content';
+import { getAdjacentProjects } from '../../utils/projects';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { slug: p.id } }));
+}
+
+const { slug } = Astro.params;
+const project = (await getCollection('projects')).find((p) => p.id === slug);
+
+if (!project) {
+  return Astro.redirect('/works/');
+}
+
+const { title, titleCn, category, client, year, images } = project.data;
+const { prev, next } = await getAdjacentProjects(slug);
+---
+
+<BaseLayout title={title} description={project.body?.slice(0, 160) ?? ''}>
+  <Header />
+  <main>
+    <article class="project-detail">
+      <header class="project-detail-header">
+        <h1 class="text-h1">{title}</h1>
+        {titleCn && <p class="text-cn" style="font-size:1.2rem; margin-top:.5rem;">{titleCn}</p>}
+        <div class="project-detail-meta">
+          <span>Client: {client}</span>
+          <span>Category: {category}</span>
+          <span>Year: {year}</span>
+        </div>
+      </header>
+
+      <SwiperCarousel images={images} alt={title} />
+
+      <div class="project-detail-body">
+        <div class="project-detail-desc">
+          {project.body ? (
+            <p set:html={project.body} />
+          ) : (
+            <p>No description available.</p>
+          )}
+        </div>
+      </div>
+
+      <nav class="project-detail-nav">
+        {prev ? (
+          <a href={`/works/${prev.id}/`}>&larr; {prev.data.title}</a>
+        ) : (
+          <span></span>
+        )}
+        {next ? (
+          <a href={`/works/${next.id}/`}>{next.data.title} &rarr;</a>
+        ) : (
+          <span></span>
+        )}
+      </nav>
+    </article>
+
+    <Footer />
+  </main>
+</BaseLayout>

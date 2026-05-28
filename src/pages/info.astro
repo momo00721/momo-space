@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout title="Info">
+  <Header />
+  <main>
+    <div class="info-content">
+      <p class="info-intro">
+        Workbyworks is a multidisciplinary design studio based in New York and Shanghai,
+        founded by Han Gao and Wenbo Yi.
+      </p>
+      <p class="info-intro text-cn" style="margin-top:1rem;">
+        Workbyworks 是一家位于纽约和上海的多学科设计工作室，由高晗与易文波联合创立。
+      </p>
+
+      <div class="info-section">
+        <h3>Services 服务</h3>
+        <ul class="info-services">
+          <li>Creative Direction<br><span class="text-cn">创意指导</span></li>
+          <li>Branding<br><span class="text-cn">品牌推广</span></li>
+          <li>Visual Identities<br><span class="text-cn">视觉识别系统</span></li>
+          <li>Packaging Design<br><span class="text-cn">包装设计</span></li>
+          <li>Website Design<br><span class="text-cn">网站设计</span></li>
+          <li>Book Design<br><span class="text-cn">书籍设计</span></li>
+        </ul>
+      </div>
+
+      <div class="info-section" id="contact">
+        <h3>Contact 联系</h3>
+        <p>
+          <a href="mailto:info@workbyworks.studio">info@workbyworks.studio</a>
+        </p>
+        <p>
+          <a href="https://instagram.com/workbyworks" target="_blank" rel="noopener">
+            Instagram
+          </a>
+        </p>
+      </div>
+
+      <div class="info-section">
+        <h3>Selected Clients 精选客户</h3>
+        <p>NICE CREAM / YOURS TRULY / BONELESS / Xander Zhou / AIZOME / PASCAL /
+        Démi Bai / RM68 / Cheshire Architects / 焦内</p>
+      </div>
+    </div>
+
+    <Footer />
+  </main>
+</BaseLayout>

@@ -1,0 +1,9 @@
+---
+const { text = 'CREATIVE DIRECTION &mdash; BRANDING &mdash; VISUAL IDENTITIES &mdash; PACKAGING &mdash; WEBSITES &mdash; BOOK DESIGN &mdash;' } = Astro.props;
+---
+
+<div class="marquee">
+  <div class="marquee-inner">
+    <span set:html={text} />&ensp;<span set:html={text} />
+  </div>
+</div>

@@ -1,0 +1,25 @@
+---
+export interface Props {
+  title: string;
+  category: string;
+  client: string;
+  slug: string;
+  cover?: string;
+}
+
+const { title, category, client, slug, cover } = Astro.props;
+const imgSrc = cover ?? '/placeholder.svg';
+---
+
+<a href={`/works/${slug}/`} class="project-card">
+  <div class="project-card-media">
+    <img src={imgSrc} alt={`${title} — ${client}`} loading="lazy" decoding="async" />
+  </div>
+  <div class="project-card-info">
+    <div>
+      <p class="project-card-title">{title}</p>
+      <p class="project-card-client">{client}</p>
+    </div>
+    <span class="text-caption">{category}</span>
+  </div>
+</a>

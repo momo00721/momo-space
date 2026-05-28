@@ -1,0 +1,96 @@
+---
+// Full-screen keyview hero for the homepage
+// Shows featured projects with left/right navigation and clip-path collapse
+
+export interface KeyViewProject {
+  title: string;
+  category: string;
+  client: string;
+  slug: string;
+  image?: string;
+}
+
+const { projects = [] } = Astro.props as { projects: KeyViewProject[] };
+---
+
+<div id="keyview" class="keyview">
+  {projects.map((p, i) => (
+    <img
+      class="keyview-media"
+      src={p.image ?? '/placeholder.svg'}
+      alt={p.title}
+      data-index={i}
+      style={{ opacity: i === 0 ? '0.85' : '0', zIndex: i === 0 ? '1' : '0' }}
+    />
+  ))}
+
+  <div class="keyview-overlay">
+    <h1 class="keyview-title text-hero" id="keyview-title">{projects[0]?.title ?? ''}</h1>
+    <p class="keyview-category text-caption" id="keyview-cat">
+      {projects[0]?.category ?? ''} — {projects[0]?.client ?? ''}
+    </p>
+  </div>
+
+  <div class="keyview-arrows">
+    <button class="keyview-arrow" id="keyview-prev" aria-label="Previous project">&larr;</button>
+    <button class="keyview-arrow" id="keyview-next" aria-label="Next project">&rarr;</button>
+  </div>
+
+  <button class="keyview-explore" id="keyview-explore">
+    Explore &darr;
+  </button>
+</div>
+
+<script>
+  const projects = [
+    {title:'', category:'', client:'', slug:'', image:''},
+    ...JSON.parse(document.getElementById('keyview')?.dataset.projects ?? '[]'),
+  ];
+
+  // Fallback: extract from DOM
+  const titles = [...document.querySelectorAll('.keyview-media')].map((img, i) => ({
+    title: document.getElementById('keyview-title')?.textContent ?? '',
+    category: document.getElementById('keyview-cat')?.textContent?.split(' — ')[0] ?? '',
+    client: document.getElementById('keyview-cat')?.textContent?.split(' — ')[1] ?? '',
+    el: img as HTMLImageElement,
+  }));
+
+  let current = 0;
+  const total = document.querySelectorAll('.keyview-media').length;
+
+  function show(index: number) {
+    if (total === 0) return;
+    current = ((index % total) + total) % total;
+    const images = document.querySelectorAll<HTMLImageElement>('.keyview-media');
+    images.forEach((img, i) => {
+      img.style.opacity = i === current ? '0.85' : '0';
+      img.style.zIndex = i === current ? '1' : '0';
+    });
+    const titleEl = document.getElementById('keyview-title');
+    const catEl = document.getElementById('keyview-cat');
+    if (titleEl && catEl && projects[current]) {
+      const p = projects[current];
+      titleEl.textContent = p.title;
+      catEl.textContent = `${p.category} — ${p.client}`;
+    }
+  }
+
+  document.getElementById('keyview-prev')?.addEventListener('click', () => show(current - 1));
+  document.getElementById('keyview-next')?.addEventListener('click', () => show(current + 1));
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (document.getElementById('keyview')?.getBoundingClientRect().bottom ?? 0 > 0) {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    }
+  });
+
+  // Scroll down on Explore click
+  document.getElementById('keyview-explore')?.addEventListener('click', () => {
+    const keyview = document.getElementById('keyview');
+    if (keyview) {
+      window.scrollTo({ top: keyview.offsetHeight, behavior: 'smooth' });
+    }
+  });
+</script>

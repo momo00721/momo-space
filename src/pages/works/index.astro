@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getAllProjects, getCategories } from '../../utils/projects';
+
+const projects = await getAllProjects();
+const categories = await getCategories();
+---
+
+<BaseLayout title="Works">
+  <Header />
+  <main>
+    <div class="page-header">
+      <h1 class="text-h1">Works</h1>
+    </div>
+
+    <div class="filter-bar" id="filter-bar">
+      {categories.map((cat) => (
+        <button
+          class="filter-btn"
+          class:list={{ active: cat === 'all' }}
+          data-category={cat}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <section class="projects-grid" id="projects-grid">
+      {projects
+        .sort((a, b) => a.data.order - b.data.order)
+        .map((p) => (
+          <ProjectCard
+            title={p.data.title}
+            category={p.data.category}
+            client={p.data.client}
+            slug={p.id}
+            cover={p.data.cover ?? '/placeholder.svg'}
+          />
+        ))}
+    </section>
+
+    <Footer />
+  </main>
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const grid = document.getElementById('projects-grid');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cat = (btn as HTMLElement).dataset.category;
+      const cards = grid?.querySelectorAll<HTMLAnchorElement>('.project-card');
+
+      cards?.forEach((card) => {
+        const cardCat = card.querySelector('.text-caption')?.textContent?.trim().toLowerCase();
+        if (!cat || cat === 'all' || cardCat === cat) {
+          card.style.display = '';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+          card.style.opacity = '0';
+        }
+      });
+    });
+  });
+</script>

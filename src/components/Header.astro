@@ -1,0 +1,28 @@
+---
+const navItems = [
+  { label: 'Works', href: '/works/' },
+  { label: 'Info', href: '/info/' },
+  { label: 'Contact', href: '/info/#contact' },
+];
+
+const isHome = Astro.url.pathname === '/';
+---
+
+<header class="header" class:list={{ 'header-home': isHome }}>
+  <a href="/" class="header-logo">Workbyworks</a>
+  <nav class="header-nav">
+    {navItems.map((item) => (
+      <a href={item.href}>
+        <span class="label-top">{item.label}</span>
+        <span class="label-bottom" aria-hidden="true">{item.label}</span>
+      </a>
+    ))}
+  </nav>
+</header>
+
+<style is:global>
+  .header-home {
+    mix-blend-mode: difference;
+    color: var(--c-accent);
+  }
+</style>

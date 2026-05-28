@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <rect width="1200" height="900" fill="#dedede"/>
+  <text x="600" y="460" font-family="Inter, sans-serif" font-size="48" font-weight="600" fill="#999" text-anchor="middle">Workbyworks</text>
+  <text x="600" y="510" font-family="Inter, sans-serif" font-size="20" fill="#aaa" text-anchor="middle">Project Image Placeholder</text>
+</svg>

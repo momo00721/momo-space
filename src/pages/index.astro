@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import KeyView from '../components/KeyView.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Marquee from '../components/Marquee.astro';
+import { getFeaturedProjects, getAllProjects } from '../utils/projects';
+
+const featured = await getFeaturedProjects();
+const all = await getAllProjects();
+
+const keyviewProjects = featured.map((p) => ({
+  title: p.data.title,
+  category: p.data.category,
+  client: p.data.client,
+  slug: p.id,
+  image: p.data.cover ?? '/placeholder.svg',
+}));
+---
+
+<BaseLayout title="Home">
+  <Header />
+  <KeyView projects={keyviewProjects} />
+
+  <main class="content">
+    <section class="projects-grid">
+      {all
+        .sort((a, b) => a.data.order - b.data.order)
+        .map((p) => (
+          <ProjectCard
+            title={p.data.title}
+            category={p.data.category}
+            client={p.data.client}
+            slug={p.slug}
+            cover={p.data.cover ?? '/placeholder.svg'}
+          />
+        ))}
+    </section>
+
+    <Marquee text="CREATIVE DIRECTION &mdash; BRANDING &mdash; VISUAL IDENTITIES &mdash; PACKAGING &mdash; WEBSITES &mdash; BOOK DESIGN &mdash;" />
+    <Footer />
+  </main>
+</BaseLayout>
