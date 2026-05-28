@@ -11,11 +11,12 @@ export async function getStaticPaths() {
   return projects.map((p) => ({ params: { slug: p.id } }));
 }
 
+const base = import.meta.env.BASE_URL;
 const { slug } = Astro.params;
 const project = (await getCollection('projects')).find((p) => p.id === slug);
 
 if (!project) {
-  return Astro.redirect('/works/');
+  return Astro.redirect(`${base}works/`);
 }
 
 const { title, titleCn, category, client, year, images } = project.data;
@@ -50,12 +51,12 @@ const { prev, next } = await getAdjacentProjects(slug);
 
       <nav class="project-detail-nav">
         {prev ? (
-          <a href={`/works/${prev.id}/`}>&larr; {prev.data.title}</a>
+          <a href={`${base}works/${prev.id}/`}>&larr; {prev.data.title}</a>
         ) : (
           <span></span>
         )}
         {next ? (
-          <a href={`/works/${next.id}/`}>{next.data.title} &rarr;</a>
+          <a href={`${base}works/${next.id}/`}>{next.data.title} &rarr;</a>
         ) : (
           <span></span>
         )}

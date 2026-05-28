@@ -1,15 +1,17 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 const navItems = [
-  { label: 'Works', href: '/works/' },
-  { label: 'Info', href: '/info/' },
-  { label: 'Contact', href: '/info/#contact' },
+  { label: 'Works', href: `${base}works/` },
+  { label: 'Info', href: `${base}info/` },
+  { label: 'Contact', href: `${base}info/#contact` },
 ];
 
-const isHome = Astro.url.pathname === '/';
+const isHome = Astro.url.pathname === base || Astro.url.pathname === '/';
 ---
 
 <header class="header" class:list={{ 'header-home': isHome }}>
-  <a href="/" class="header-logo">Workbyworks</a>
+  <a href={base} class="header-logo">Workbyworks</a>
   <nav class="header-nav">
     {navItems.map((item) => (
       <a href={item.href}>

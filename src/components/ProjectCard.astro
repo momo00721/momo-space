@@ -7,11 +7,12 @@ export interface Props {
   cover?: string;
 }
 
+const base = import.meta.env.BASE_URL;
 const { title, category, client, slug, cover } = Astro.props;
-const imgSrc = cover ?? '/placeholder.svg';
+const imgSrc = cover ?? `${base}placeholder.svg`;
 ---
 
-<a href={`/works/${slug}/`} class="project-card">
+<a href={`${base}works/${slug}/`} class="project-card">
   <div class="project-card-media">
     <img src={imgSrc} alt={`${title} — ${client}`} loading="lazy" decoding="async" />
   </div>
