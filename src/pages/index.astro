@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import KeyView from '../components/KeyView.astro';
+import Banner from '../components/Banner.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Marquee from '../components/Marquee.astro';
 import { getFeaturedProjects, getAllProjects } from '../utils/projects';
@@ -10,18 +10,18 @@ import { getFeaturedProjects, getAllProjects } from '../utils/projects';
 const featured = await getFeaturedProjects();
 const all = await getAllProjects();
 
-const keyviewProjects = featured.map((p) => ({
-  title: p.data.title,
+const bannerSlides = featured.map((p, i) => ({
+  image: `/works/banner/banner_0${i + 1}.png`,
+  title: p.data.titleCn || p.data.title,
   category: p.data.category,
   client: p.data.client,
   slug: p.id,
-  image: p.data.cover ?? '/placeholder.svg',
 }));
 ---
 
 <BaseLayout title="Home">
   <Header />
-  <KeyView projects={keyviewProjects} />
+  <Banner slides={bannerSlides} />
 
   <main class="content">
     <section class="projects-grid">

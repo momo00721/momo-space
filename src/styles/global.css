@@ -377,6 +377,17 @@ button {
   margin: 0 auto;
 }
 
+.project-images {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .project-detail-header {
   margin-bottom: 3rem;
 }

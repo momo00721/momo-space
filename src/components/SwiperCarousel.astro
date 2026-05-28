@@ -5,9 +5,13 @@ export interface Props {
 }
 
 const { images = [], alt = 'Project image' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+function asset(path: string) {
+  return path.startsWith('/') ? `${base}${path.slice(1)}` : path;
+}
 
 if (images.length === 0) {
-  const placeholderUrl = '/placeholder.svg';
+  const placeholderUrl = `${base}placeholder.svg`;
   images.push(placeholderUrl);
 }
 ---
@@ -16,7 +20,7 @@ if (images.length === 0) {
   <div class="swiper-wrapper">
     {images.map((src, i) => (
       <div class="swiper-slide">
-        <img src={src} alt={`${alt} — ${i + 1}`} loading={i === 0 ? 'eager' : 'lazy'} />
+        <img src={asset(src)} alt={`${alt} — ${i + 1}`} loading={i === 0 ? 'eager' : 'lazy'} />
       </div>
     ))}
   </div>

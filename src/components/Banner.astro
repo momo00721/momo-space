@@ -1,0 +1,118 @@
+---
+export interface BannerSlide {
+  image: string;
+  title: string;
+  category: string;
+  client: string;
+  slug: string;
+}
+
+const { slides = [] } = Astro.props as { slides: BannerSlide[] };
+const base = import.meta.env.BASE_URL;
+function asset(path: string) {
+  return path.startsWith('/') ? `${base}${path.slice(1)}` : path;
+}
+---
+
+<div class="banner swiper-container" id="banner-carousel">
+  <div class="swiper-wrapper">
+    {slides.map((s) => (
+      <a href={`${base}works/${s.slug}/`} class="swiper-slide banner-slide">
+        <img src={asset(s.image)} alt={s.title} loading="eager" />
+        <div class="banner-slide-overlay">
+          <h2 class="text-hero">{s.title}</h2>
+          <p class="text-caption">{s.category} &mdash; {s.client}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+  import 'swiper/css/navigation';
+  import 'swiper/css/autoplay';
+
+  new Swiper('#banner-carousel', {
+    modules: [Autoplay],
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    speed: 800,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+<style is:global>
+  .banner {
+    width: 100%;
+    aspect-ratio: 2235 / 1010;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+  }
+
+  .banner-slide {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .banner-slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 3rem 3rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.5));
+    color: #fff;
+    z-index: 2;
+    text-align: left;
+  }
+
+  .banner-slide-overlay h2 {
+    margin: 0 0 0.25rem;
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  .banner-slide-overlay p {
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff !important;
+    mix-blend-mode: difference;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+    mix-blend-mode: difference;
+  }
+</style>

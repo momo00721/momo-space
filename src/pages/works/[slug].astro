@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import SwiperCarousel from '../../components/SwiperCarousel.astro';
 import { getCollection } from 'astro:content';
 import { getAdjacentProjects } from '../../utils/projects';
 
@@ -37,7 +36,11 @@ const { prev, next } = await getAdjacentProjects(slug);
         </div>
       </header>
 
-      <SwiperCarousel images={images} alt={title} />
+      <div class="project-images">
+        {images.map((src, i) => (
+          <img src={`${base}${src.replace(/^\//, '')}`} alt={`${title} — ${i + 1}`} loading={i < 3 ? 'eager' : 'lazy'} />
+        ))}
+      </div>
 
       <div class="project-detail-body">
         <div class="project-detail-desc">
