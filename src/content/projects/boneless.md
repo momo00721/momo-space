@@ -1,9 +1,9 @@
 ---
-title: "BONELESS"
-titleCn: "BONELESS"
+title: "Duan Spring"
+titleCn: "Duan Spring"
 category: "branding"
-client: "BONELESS"
-year: 2023
+client: "Duan Spring"
+year: 2024
 featured: true
 order: 2
 images:
@@ -13,4 +13,4 @@ images:
 
 Full brand identity for BONELESS, a streetwear label. The visual language draws from urban culture and contemporary fashion, creating a bold and distinctive system across all touchpoints.
 
-街头服饰品牌 BONELESS 全案品牌设计。视觉语言汲取都市文化和当代时尚，打造贯穿所有触点的鲜明系统。
+端泉是来自长寿之乡肇庆鼎湖的深山泉水品牌，泉眼位于地下水层。高矿物质水源，喝端泉。
