@@ -11,7 +11,7 @@ const isHome = Astro.url.pathname === base || Astro.url.pathname === '/';
 ---
 
 <header class="header" class:list={{ 'header-home': isHome }}>
-  <a href={base} class="header-logo">Workbyworks</a>
+  <a href={base} class="header-logo">Kakimo</a>
   <nav class="header-nav">
     {navItems.map((item) => (
       <a href={item.href}>

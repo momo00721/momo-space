@@ -9,7 +9,7 @@ export interface Props {
 
 const {
   title,
-  description = 'Workbyworks — Multidisciplinary Design Studio based in New York & Shanghai',
+  description = 'Kakimo — Multidisciplinary Design Studio based in New York & Shanghai',
   ogImage = '/share.png',
 } = Astro.props;
 
@@ -25,18 +25,18 @@ const fullUrl = (path: string) => `${siteUrl}${base}${path.replace(/^\//, '')}`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
 
-    <title>{title} — Workbyworks</title>
+    <title>{title} — Kakimo</title>
 
     <!-- Open Graph -->
-    <meta property="og:title" content={`${title} — Workbyworks`} />
+    <meta property="og:title" content={`${title} — Kakimo`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullUrl(ogImage)} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Workbyworks" />
+    <meta property="og:site_name" content="Kakimo" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} — Workbyworks`} />
+    <meta name="twitter:title" content={`${title} — Kakimo`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullUrl(ogImage)} />
 
@@ -48,7 +48,7 @@ const fullUrl = (path: string) => `${siteUrl}${base}${path.replace(/^\//, '')}`;
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Workbyworks",
+        "name": "Kakimo",
         "description": "Multidisciplinary Design Studio based in New York & Shanghai",
         "url": {`${siteUrl}${base}`},
         "founder": [
