@@ -37,3 +37,7 @@ images:
   - "/works/zaifeng-sports/27.jpg"
 ---
 
+
+再丰体育是一家综合性体育用品企业。品牌识别系统升级围绕「再」字展开设计，注入运动感与速度感，以醒目的红色贯穿所有触点，从产品吊牌到赛事物料，构建统一且具有辨识度的品牌形象。
+
+Zaifeng Sports is a comprehensive sporting goods enterprise. The brand identity upgrade revolves around the Chinese character 「再」, infusing it with motion and speed. A bold red signature runs across all touchpoints — from product hang tags to event materials — building a consistent and recognisable brand presence.

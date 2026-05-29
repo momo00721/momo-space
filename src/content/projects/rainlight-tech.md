@@ -31,3 +31,7 @@ images:
   - "/works/rainlight-tech/21.jpg"
 ---
 
+
+雨光科技是一家医疗美容器械企业。品牌重塑将原本偏工业化的形象转向更专业、温和且具有科技感的视觉表达，以水滴与光束的结合作为超级符号，体现「科技之光，润泽之美」的品牌理念。
+
+Rainlight Tech is a medical aesthetic device company. The rebrand shifts from an industrial image to a more professional, approachable and tech-forward visual expression. A water droplet fused with a beam of light becomes the super symbol — embodying the brand idea of "light of technology, beauty of hydration."

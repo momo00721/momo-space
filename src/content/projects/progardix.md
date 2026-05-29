@@ -27,3 +27,7 @@ images:
   - "/works/progardix/17.jpg"
 ---
 
+
+Progardix 是一个来自北美的新兴护具品牌。品牌视觉以盾形符号为核心，传达保护与力量，深色调与金属质感的搭配赋予产品专业与高性能的感知。系统涵盖标志、包装、电商页面与社交媒体内容。
+
+Progardix is an emerging protective gear brand from North America. The brand visual centres on a shield symbol — conveying protection and strength — with dark tones and metallic accents lending a professional, high-performance feel. The system covers the logo, packaging, e-commerce pages and social media content.

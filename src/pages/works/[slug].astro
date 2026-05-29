@@ -45,7 +45,7 @@ const { prev, next } = await getAdjacentProjects(slug);
       <div class="project-detail-body">
         <div class="project-detail-desc">
           {project.body ? (
-            <p set:html={project.body} />
+            <div set:html={project.body} />
           ) : (
             <p>No description available.</p>
           )}

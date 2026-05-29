@@ -24,3 +24,7 @@ images:
   - "/works/goled-rabbit/14.jpg"
 ---
 
+
+金兔灯饰是一家集设计、生产与销售于一体的灯饰企业。品牌标志以兔形为核心元素，巧妙融合灯饰的发光特质，整体视觉系统涵盖VI基础规范、产品画册与展厅形象，赋予传统制造企业更鲜明的品牌识别。
+
+Goled Rabbit is a lighting enterprise integrating design, manufacturing and sales. The brand logo centres on a rabbit motif that subtly incorporates the glow of illumination. The full visual system covers VI fundamentals, product catalogues and showroom identity — giving the traditional manufacturer a sharper brand presence.

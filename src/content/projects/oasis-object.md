@@ -22,3 +22,7 @@ images:
   - "/works/oasis-object/12.jpg"
 ---
 
+
+OASIS OBJECT 是一个以自然、淳朴与生活为主题的家居品牌综合体验空间。品牌视觉以克制、有机的设计语言贯穿标志、空间标识、产品标签与线上内容，营造一处都市中的静谧绿洲，让物件本身成为空间叙事的主角。
+
+OASIS OBJECT is a lifestyle brand and immersive homeware space themed around nature, simplicity and everyday living. The brand visual runs a restrained, organic design language across the logo, space signage, product tags and online content — crafting a quiet urban oasis where the objects themselves carry the spatial narrative.

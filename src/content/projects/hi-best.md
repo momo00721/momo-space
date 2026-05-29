@@ -31,3 +31,7 @@ images:
   - "/works/hi-best/21.jpg"
 ---
 
+
+HI BEST 海百合拉伸是一个运动拉伸与恢复品牌，名称取自珍稀海洋生物海百合。品牌视觉将海百合的优雅形态转化为简洁的线性符号，结合明亮而克制的色彩，传达专业拉伸护理带来的舒展与新生。
+
+HI BEST is a sports stretching and recovery brand named after the rare marine crinoid. The brand visual translates the crinoid's elegant form into a clean linear symbol, paired with bright yet restrained colours to convey the relief and renewal that professional stretching care delivers.

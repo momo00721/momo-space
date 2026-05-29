@@ -29,3 +29,7 @@ images:
   - "/works/daijobu/19.jpg"
 ---
 
+
+DAIJOBU 是台湾运动康复品牌，专注于运动损伤防护与康复领域。品牌标志以保护与修复为核心概念，视觉系统涵盖品牌识别、产品包装与数字平台，整体调性专业、温和且值得信赖。
+
+DAIJOBU is a Taiwanese sports rehabilitation brand specialising in injury prevention and recovery. The logo centres on the idea of protection and repair, with a visual system covering brand identity, product packaging and digital platforms. The overall tone is professional, gentle and trustworthy.
