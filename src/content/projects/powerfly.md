@@ -6,19 +6,19 @@ client: "PowerFly"
 year: 2024
 featured: false
 order: 23
-cover: "/works/powerfly/封面.jpg"
+cover: "/works/powerfly/封面.webp"
 images:
-  - "/works/powerfly/01.jpg"
-  - "/works/powerfly/02.jpg"
-  - "/works/powerfly/03.jpg"
-  - "/works/powerfly/04.png"
-  - "/works/powerfly/05.jpg"
-  - "/works/powerfly/06.jpg"
-  - "/works/powerfly/07.jpg"
-  - "/works/powerfly/08.jpg"
-  - "/works/powerfly/09.jpg"
-  - "/works/powerfly/10.jpg"
-  - "/works/powerfly/11.jpg"
+  - "/works/powerfly/01.webp"
+  - "/works/powerfly/02.webp"
+  - "/works/powerfly/03.webp"
+  - "/works/powerfly/04.webp"
+  - "/works/powerfly/05.webp"
+  - "/works/powerfly/06.webp"
+  - "/works/powerfly/07.webp"
+  - "/works/powerfly/08.webp"
+  - "/works/powerfly/09.webp"
+  - "/works/powerfly/10.webp"
+  - "/works/powerfly/11.webp"
 ---
 
 

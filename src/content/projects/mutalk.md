@@ -6,9 +6,9 @@ client: "Mutalk"
 year: 2021
 featured: false
 order: 12
-cover: "/works/mutalk/封面.jpg"
+cover: "/works/mutalk/封面.webp"
 images:
-  - "/works/mutalk/01.jpg"
+  - "/works/mutalk/01.webp"
 ---
 
 

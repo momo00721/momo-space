@@ -6,17 +6,17 @@ client: "澳門發展關注日"
 year: 2020
 featured: false
 order: 20
-cover: "/works/macau-dev-day/封面.png"
+cover: "/works/macau-dev-day/封面.webp"
 images:
-  - "/works/macau-dev-day/01.jpg"
-  - "/works/macau-dev-day/02.jpg"
-  - "/works/macau-dev-day/03.jpg"
-  - "/works/macau-dev-day/04.jpg"
-  - "/works/macau-dev-day/05.jpg"
-  - "/works/macau-dev-day/06.jpg"
-  - "/works/macau-dev-day/07.jpg"
-  - "/works/macau-dev-day/08.jpg"
-  - "/works/macau-dev-day/09.jpg"
+  - "/works/macau-dev-day/01.webp"
+  - "/works/macau-dev-day/02.webp"
+  - "/works/macau-dev-day/03.webp"
+  - "/works/macau-dev-day/04.webp"
+  - "/works/macau-dev-day/05.webp"
+  - "/works/macau-dev-day/06.webp"
+  - "/works/macau-dev-day/07.webp"
+  - "/works/macau-dev-day/08.webp"
+  - "/works/macau-dev-day/09.webp"
 ---
 
 

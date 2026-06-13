@@ -6,22 +6,22 @@ client: "MANKE"
 year: 2023
 featured: false
 order: 19
-cover: "/works/manke/封面.png"
+cover: "/works/manke/封面.webp"
 images:
-  - "/works/manke/01.jpg"
-  - "/works/manke/02.jpg"
-  - "/works/manke/03.jpg"
-  - "/works/manke/04.jpg"
-  - "/works/manke/05.jpg"
-  - "/works/manke/06.jpg"
-  - "/works/manke/07.jpg"
-  - "/works/manke/08.jpg"
-  - "/works/manke/09.jpg"
-  - "/works/manke/10.jpg"
-  - "/works/manke/11.jpg"
-  - "/works/manke/12.jpg"
-  - "/works/manke/13.jpg"
-  - "/works/manke/14.jpg"
+  - "/works/manke/01.webp"
+  - "/works/manke/02.webp"
+  - "/works/manke/03.webp"
+  - "/works/manke/04.webp"
+  - "/works/manke/05.webp"
+  - "/works/manke/06.webp"
+  - "/works/manke/07.webp"
+  - "/works/manke/08.webp"
+  - "/works/manke/09.webp"
+  - "/works/manke/10.webp"
+  - "/works/manke/11.webp"
+  - "/works/manke/12.webp"
+  - "/works/manke/13.webp"
+  - "/works/manke/14.webp"
 ---
 
 

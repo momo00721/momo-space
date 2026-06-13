@@ -6,22 +6,22 @@ client: "Goled Rabbit"
 year: 2023
 featured: false
 order: 22
-cover: "/works/goled-rabbit/封面.jpg"
+cover: "/works/goled-rabbit/封面.webp"
 images:
-  - "/works/goled-rabbit/01.jpg"
-  - "/works/goled-rabbit/02.jpg"
-  - "/works/goled-rabbit/03.jpg"
-  - "/works/goled-rabbit/04.jpg"
-  - "/works/goled-rabbit/05.jpg"
-  - "/works/goled-rabbit/06.jpg"
-  - "/works/goled-rabbit/07.jpg"
-  - "/works/goled-rabbit/08.jpg"
-  - "/works/goled-rabbit/09.jpg"
-  - "/works/goled-rabbit/10.jpg"
-  - "/works/goled-rabbit/11.jpg"
-  - "/works/goled-rabbit/12.jpg"
-  - "/works/goled-rabbit/13.jpg"
-  - "/works/goled-rabbit/14.jpg"
+  - "/works/goled-rabbit/01.webp"
+  - "/works/goled-rabbit/02.webp"
+  - "/works/goled-rabbit/03.webp"
+  - "/works/goled-rabbit/04.webp"
+  - "/works/goled-rabbit/05.webp"
+  - "/works/goled-rabbit/06.webp"
+  - "/works/goled-rabbit/07.webp"
+  - "/works/goled-rabbit/08.webp"
+  - "/works/goled-rabbit/09.webp"
+  - "/works/goled-rabbit/10.webp"
+  - "/works/goled-rabbit/11.webp"
+  - "/works/goled-rabbit/12.webp"
+  - "/works/goled-rabbit/13.webp"
+  - "/works/goled-rabbit/14.webp"
 ---
 
 
