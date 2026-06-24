@@ -10,16 +10,21 @@ import { getFeaturedProjects, getAllProjects } from '../utils/projects';
 const featured = await getFeaturedProjects();
 const all = await getAllProjects();
 
-const bannerSlides = featured.map((p, i) => ({
-  image: `/works/banner/banner_0${i + 1}.webp`,
+const bannerSlides = featured.map((p) => ({
+  image: `/works/banner/banner_${String(p.data.order).padStart(2, '0')}.png`,
   title: p.data.titleCn || p.data.title,
   category: p.data.category,
   client: p.data.client,
   slug: p.id,
 }));
+
+const base = import.meta.env.BASE_URL;
+const firstBanner = bannerSlides[0]?.image;
+const firstBannerSrc = firstBanner?.startsWith('/') ? `${base}${firstBanner.slice(1)}` : firstBanner;
 ---
 
 <BaseLayout title="Home">
+  {firstBannerSrc && <link rel="preload" as="image" href={firstBannerSrc} fetchpriority="high" />}
   <Header />
   <Banner slides={bannerSlides} />
 

@@ -38,7 +38,13 @@ const { prev, next } = await getAdjacentProjects(slug);
 
       <div class="project-images">
         {images.map((src, i) => (
-          <img src={`${base}${src.replace(/^\//, '')}`} alt={`${title} — ${i + 1}`} loading={i < 3 ? 'eager' : 'lazy'} />
+          <img
+            src={`${base}${src.replace(/^\//, '')}`}
+            alt={`${title} — ${i + 1}`}
+            loading={i < 2 ? 'eager' : 'lazy'}
+            decoding={i < 2 ? 'sync' : 'async'}
+            {...(i === 0 ? { fetchpriority: 'high' } : {})}
+          />
         ))}
       </div>
 

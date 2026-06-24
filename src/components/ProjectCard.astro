@@ -17,7 +17,12 @@ const imgSrc = cover ? asset(cover) : `${base}placeholder.svg`;
 
 <a href={`${base}works/${slug}/`} class="project-card">
   <div class="project-card-media">
-    <img src={imgSrc} alt={`${title} — ${client}`} loading="lazy" decoding="async" />
+    <img
+      src={imgSrc}
+      alt={`${title} — ${client}`}
+      loading="lazy"
+      decoding="async"
+    />
   </div>
   <div class="project-card-info">
     <div>

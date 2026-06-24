@@ -40,6 +40,9 @@ const fullUrl = (path: string) => `${siteUrl}${base}${path.replace(/^\//, '')}`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullUrl(ogImage)} />
 
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href={`${base}sitemap.xml`} />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 

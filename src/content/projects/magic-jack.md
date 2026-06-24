@@ -6,13 +6,13 @@ client: "神奇的杰克"
 year: 2020
 featured: false
 order: 11
-cover: "/works/magic-jack/封面.webp"
+cover: "/works/magic-jack/封面.png"
 images:
-  - "/works/magic-jack/01.webp"
-  - "/works/magic-jack/02.webp"
-  - "/works/magic-jack/03.webp"
-  - "/works/magic-jack/04.webp"
-  - "/works/magic-jack/05.webp"
+  - "/works/magic-jack/01.png"
+  - "/works/magic-jack/02.jpg"
+  - "/works/magic-jack/03.jpg"
+  - "/works/magic-jack/04.jpg"
+  - "/works/magic-jack/05.jpg"
 ---
 
 

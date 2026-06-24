@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+---
+
+<BaseLayout title="404 — Not Found">
+  <Header />
+  <main style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 2rem;
+  ">
+    <h1 style="font-size: clamp(3rem, 8vw, 10rem); font-weight: 900; line-height: 0.9;">404</h1>
+    <p style="margin-top: 1.5rem; font-size: 1.1rem; color: var(--c-dim);">
+      This page doesn't exist.
+    </p>
+    <a href="/" style="
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 0.25rem;
+      transition: opacity 0.3s;
+    ">
+      Back to Home
+    </a>
+  </main>
+</BaseLayout>

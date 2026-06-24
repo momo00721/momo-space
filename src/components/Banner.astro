@@ -16,9 +16,14 @@ function asset(path: string) {
 
 <div class="banner swiper-container" id="banner-carousel">
   <div class="swiper-wrapper">
-    {slides.map((s) => (
+    {slides.map((s, i) => (
       <a href={`${base}works/${s.slug}/`} class="swiper-slide banner-slide">
-        <img src={asset(s.image)} alt={s.title} loading="eager" />
+        <img
+          src={asset(s.image)}
+          alt={s.title}
+          loading="eager"
+          fetchpriority={i === 0 ? 'high' : 'auto'}
+        />
         <div class="banner-slide-overlay">
           <h2 class="text-hero">{s.title}</h2>
           <p class="text-caption">{s.category} &mdash; {s.client}</p>
@@ -33,14 +38,13 @@ function asset(path: string) {
 
 <script>
   import Swiper from 'swiper';
-  import { Autoplay } from 'swiper/modules';
+  import { Autoplay, Pagination, Navigation } from 'swiper/modules';
   import 'swiper/css';
   import 'swiper/css/pagination';
   import 'swiper/css/navigation';
-  import 'swiper/css/autoplay';
 
   new Swiper('#banner-carousel', {
-    modules: [Autoplay],
+    modules: [Autoplay, Pagination, Navigation],
     loop: true,
     autoplay: {
       delay: 4000,

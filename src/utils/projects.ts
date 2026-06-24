@@ -3,10 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Project = CollectionEntry<'projects'>;
 
 export async function getAllProjects(): Promise<Project[]> {
-  return getCollection('projects', ({ data }) => {
-    if (import.meta.env.PROD) return true;
-    return true;
-  });
+  return getCollection('projects');
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {

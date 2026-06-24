@@ -6,18 +6,18 @@ client: "INIZIO"
 year: 2020
 featured: false
 order: 28
-cover: "/works/inizio/cover.webp"
+cover: "/works/inizio/cover.jpg"
 images:
-  - "/works/inizio/01.webp"
-  - "/works/inizio/02.webp"
-  - "/works/inizio/03.webp"
-  - "/works/inizio/04.webp"
-  - "/works/inizio/05.webp"
-  - "/works/inizio/06.webp"
-  - "/works/inizio/07.webp"
-  - "/works/inizio/08.webp"
-  - "/works/inizio/09.webp"
-  - "/works/inizio/10.webp"
+  - "/works/inizio/01.jpg"
+  - "/works/inizio/02.jpg"
+  - "/works/inizio/03.jpg"
+  - "/works/inizio/04.jpg"
+  - "/works/inizio/05.jpg"
+  - "/works/inizio/06.jpg"
+  - "/works/inizio/07.jpg"
+  - "/works/inizio/08.jpg"
+  - "/works/inizio/09.jpg"
+  - "/works/inizio/10.jpg"
 ---
 
 INIZIO是一个新兴家具品牌，主张简约、质感与可持续的生活方式。品牌视觉以克制的字体排印与中性色调为核心，贯穿名片、吊牌、画册与包装等触点，传达沉静、真诚与手作温度，与品牌倡导的慢生活理念保持一致。
