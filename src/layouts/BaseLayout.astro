@@ -14,7 +14,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
-const siteUrl = (Astro.site?.href ?? 'https://kakimo.pages.dev').replace(/\/$/, '');
+const siteUrl = (Astro.site?.href ?? 'https://momo00721.github.io').replace(/\/$/, '');
 const fullUrl = (path: string) => `${siteUrl}${base}${path.replace(/^\//, '')}`;
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
