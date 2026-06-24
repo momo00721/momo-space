@@ -60,6 +60,13 @@ const jsonLd = JSON.stringify({
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" set:html={jsonLd}></script>
+
+    <!-- Service Worker: instant loads after first visit -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register(`${base}sw.js`);
+      }
+    </script>
   </head>
   <body>
     <slot />
