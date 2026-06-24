@@ -14,8 +14,20 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
-const siteUrl = (Astro.site?.href ?? 'https://momo00721.github.io').replace(/\/$/, '');
+const siteUrl = (Astro.site?.href ?? 'https://kakimo.pages.dev').replace(/\/$/, '');
 const fullUrl = (path: string) => `${siteUrl}${base}${path.replace(/^\//, '')}`;
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Kakimo',
+  description: 'Multidisciplinary Design Studio based in New York & Shanghai',
+  url: `${siteUrl}${base}`,
+  founder: [
+    { '@type': 'Person', name: 'Han Gao' },
+    { '@type': 'Person', name: 'Wenbo Yi' },
+  ],
+  areaServed: ['New York', 'Shanghai'],
+});
 ---
 
 <!doctype html>
@@ -47,20 +59,7 @@ const fullUrl = (path: string) => `${siteUrl}${base}${path.replace(/^\//, '')}`;
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "name": "Kakimo",
-        "description": "Multidisciplinary Design Studio based in New York & Shanghai",
-        "url": {`${siteUrl}${base}`},
-        "founder": [
-          { "@type": "Person", "name": "Han Gao" },
-          { "@type": "Person", "name": "Wenbo Yi" }
-        ],
-        "areaServed": ["New York", "Shanghai"]
-      }
-    </script>
+    <script type="application/ld+json" set:html={jsonLd}></script>
   </head>
   <body>
     <slot />
