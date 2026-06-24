@@ -1,8 +1,8 @@
 const CACHE = 'kakimo-v2';
 const CRITICAL = [
-  '/momo-space/',
-  '/momo-space/works/',
-  '/momo-space/info/',
+  '/',
+  '/works/',
+  '/info/',
 ];
 
 // Install: precache critical pages

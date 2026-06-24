@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://momo00721.github.io/momo-space/sitemap.xml
+Sitemap: https://kakimo.pages.dev/sitemap.xml

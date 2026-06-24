@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 
 export async function GET() {
-  const siteUrl = 'https://momo00721.github.io/momo-space';
+  const siteUrl = 'https://kakimo.pages.dev';
 
   const projects = await getCollection('projects');
 
