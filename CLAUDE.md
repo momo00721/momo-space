@@ -1,51 +1,78 @@
 # Kakimo Portfolio Site
 
-Astro v6 static site for Kakimo design studio portfolio. Deployed to GitHub Pages.
+Astro v6 static site for Kakimo design studio portfolio.
 
 ## Quick Start
 ```bash
 cd /Users/maomao/workbyworks-replica
-npm run dev        # dev server, auto-finds available port
-npm run build      # production build
+npm run dev        # dev server at localhost:4321
+npm run build      # production build → dist/
 ```
 
-## Key Configuration
-- **Tech**: Astro v6.3, static output (`output: 'static'`)
-- **Base path**: `/momo-space/` (configured in `astro.config.mjs`)
-- **Dev URL**: `http://localhost:4321/momo-space/` (port may shift if occupied)
-- **Production**: `https://momo00721.github.io/momo-space/`
-- **Repo**: `https://github.com/momo00721/momo-space` (branch: `main`)
+## Deployment
+
+**Target**: Cloudflare Pages at `https://kakimo.pages.dev`
+
+**Config**:
+- Base path: `/`
+- Site URL: `https://kakimo.pages.dev`
+- Build command: `npm run build`
+- Output directory: `dist`
+
+**To deploy**: Push to `main` branch → Cloudflare Pages auto-deploys via Git integration.
+
+Git remote: `https://github.com/momo00721/momo-space.git`
 
 ## Project Structure
 ```
 src/
-├── content/projects/   # 31 project markdown files (Zod schema in content.config.ts)
+├── content/projects/   # 31 project markdown files
 ├── pages/
 │   ├── index.astro     # Homepage: Banner carousel + project grid + marquee
 │   ├── works/
-│   │   └── [slug].astro # Project detail: image stack + description
-│   └── info.astro      # Info/contact page
+│   │   ├── index.astro # Works listing with category filter
+│   │   └── [slug].astro # Project detail
+│   ├── info.astro      # Studio info (Chinese)
+│   ├── 404.astro       # Custom 404 page
+│   └── sitemap.xml.ts  # Auto-generated sitemap
 ├── components/
-│   ├── Header.astro    # Fixed header with logo.png (adaptive invert on banner)
-│   ├── Footer.astro    # Phone/WeChat contact
-│   ├── Banner.astro    # Swiper carousel (homepage hero, 7 slides)
-│   └── ProjectCard.astro
+│   ├── Header.astro    # Fixed header, mix-blend-mode on homepage
+│   ├── Footer.astro
+│   ├── Banner.astro    # Swiper carousel (Autoplay+Pagination+Navigation)
+│   ├── ProjectCard.astro
+│   └── Marquee.astro   # CSS animated scrolling text
 ├── utils/projects.ts   # getFeaturedProjects(), getAdjacentProjects(), etc.
-├── styles/global.css   # All global styles (24-col grid, typography, responsive)
+├── styles/global.css   # All global styles
 └── layouts/BaseLayout.astro
 public/
-├── works/              # All project images (31 projects, 450+ files, ~330MB)
-│   ├── banner/         # 7 banner images (2235×1010)
-│   └── [slug]/         # cover + 01-XX images per project
-└── logo.png            # Site logo (adaptive black/white via CSS filter)
+├── works/              # All 460 original PNG/JPG images (31 projects, ~372MB)
+│   ├── banner/         # 7 banner images (PNG originals)
+│   └── [slug]/         # cover + numbered images per project
+├── sw.js              # Service Worker for offline caching
+├── _headers           # Cloudflare CDN cache rules
+├── robots.txt
+├── logo.png / logo.webp / logo.svg
+└── share.webp / favicon.svg
 ```
 
-## Critical Rules
-- **All image paths must use `base` prefix**: `/works/...` won't work; must be `${base}works/...` or use the `asset()` helper pattern
-- **Images in `public/` receive zero processing** (no compression, no Vite pipeline)
-- **Git push**: If HTTP/2 fails, use `git -c http.version=HTTP/1.1 push`
-- **Large repo** (~330MB): `git config http.postBuffer 524288000` needed for push
-- Project content schema: `title`, `titleCn`, `category`, `client`, `year`, `featured`, `order`, `cover`, `images[]`
-- Categories for filter: `branding`, `packaging`, `digital`, `print`, `advertising`, `environment`
-- Banner slides map to `featured: true` projects ordered by `order` field
-- Header logo inverts on homepage: `.header-home .header-logo-img { filter: invert(1); }` + `mix-blend-mode: difference`
+## Key Facts
+- **Images**: All 460 images are ORIGINAL PNG/JPG (not WebP). Colors are 100% accurate to source files. DO NOT convert to WebP.
+- **Image loading**: Banner preloaded (fetchpriority=high), project cards lazy-loaded, detail pages first 2 eager + rest lazy
+- **Service Worker**: sw.js caches all pages/images after first visit. Subsequent visits load instantly from local cache.
+- **Swiper**: Banner carousel uses Autoplay, Pagination, Navigation modules (all properly registered)
+- **SEO**: JSON-LD structured data (set:html), Open Graph, Twitter cards, sitemap.xml, robots.txt
+- **Cache headers**: Cloudflare _headers file sets image cache to 1 year
+- **Categories**: branding, packaging, digital, print, environment
+- **Featured projects** (banner): order 1-7 → guangzhou-baiyun-logo, duanquan, daijobu, longyun-hotel, zaifeng-sports, progardix, rainlight-tech
+
+## Images — CRITICAL RULES
+- **NEVER convert images to WebP or any other format** — this causes color shifts
+- **NEVER compress or resize images** — client views this on high-res displays
+- **All image references use original extensions** (.png or .jpg, never .webp)
+- Cover images are named `封面.png`/`封面.jpg` or `cover.png`/`cover.jpg`
+- Banner images are `banner_01.png` through `banner_07.png`
+
+## Deployment History
+- Originally deployed to GitHub Pages (`/momo-space/` base)
+- Switched to Cloudflare Pages (`/` base) for China accessibility via JD Cloud edge nodes
+- Commit `5aba1b5` is the Cloudflare Pages config (may be unpushed)
