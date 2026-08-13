@@ -21,7 +21,8 @@ function asset(path: string) {
         <img
           src={asset(s.image)}
           alt={s.title}
-          loading="eager"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding={i === 0 ? 'sync' : 'async'}
           fetchpriority={i === 0 ? 'high' : 'auto'}
         />
         <div class="banner-slide-overlay">

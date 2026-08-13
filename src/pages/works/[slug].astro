@@ -41,8 +41,8 @@ const { prev, next } = await getAdjacentProjects(slug);
           <img
             src={`${base}${src.replace(/^\//, '')}`}
             alt={`${title} — ${i + 1}`}
-            loading={i < 2 ? 'eager' : 'lazy'}
-            decoding={i < 2 ? 'sync' : 'async'}
+            loading={i < 1 ? 'eager' : 'lazy'}
+            decoding={i < 1 ? 'sync' : 'async'}
             {...(i === 0 ? { fetchpriority: 'high' } : {})}
           />
         ))}
