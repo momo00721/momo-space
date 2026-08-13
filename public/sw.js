@@ -1,6 +1,7 @@
-// 部署路径：Cloudflare Pages 根路径
-const CACHE = 'kakimo-v4';
-const BASE = '/';
+// 自动推断 base path（适配 Cloudflare 根路径 / 与 GitHub Pages 子路径 /momo-space/）
+const CACHE = 'kakimo-v5';
+const SW_PATH = self.location.pathname; // 例如 '/sw.js' 或 '/momo-space/sw.js'
+const BASE = SW_PATH.replace(/sw\.js$/, '');
 const CRITICAL = [
   BASE,
   BASE + 'works/',
