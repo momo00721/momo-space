@@ -1,8 +1,10 @@
-const CACHE = 'kakimo-v2';
+// 部署路径：GitHub Pages 子路径 /momo-space/
+const CACHE = 'kakimo-v3';
+const BASE = '/momo-space/';
 const CRITICAL = [
-  '/',
-  '/works/',
-  '/info/',
+  BASE,
+  BASE + 'works/',
+  BASE + 'info/',
 ];
 
 // Install: precache critical pages
@@ -23,15 +25,12 @@ self.addEventListener('activate', (e) => {
   self.clients.claim();
 });
 
-// Fetch: cache-first for images, stale-while-revalidate for pages
+// Fetch routing
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
 
   // Cache-first for images
-  if (
-    url.pathname.match(/\.(png|jpg|jpeg|webp|svg|ico)/) ||
-    url.pathname.includes('/works/')
-  ) {
+  if (url.pathname.match(/\.(png|jpg|jpeg|webp|svg|ico)$/)) {
     e.respondWith(
       caches.match(e.request).then((cached) => {
         const fetchPromise = fetch(e.request).then((res) => {
@@ -48,7 +47,7 @@ self.addEventListener('fetch', (e) => {
   }
 
   // Stale-while-revalidate for HTML pages
-  if (e.request.destination === 'document') {
+  if (e.request.destination === 'document' || url.pathname.endsWith('/')) {
     e.respondWith(
       caches.match(e.request).then((cached) => {
         const fetchPromise = fetch(e.request).then((res) => {
@@ -65,10 +64,7 @@ self.addEventListener('fetch', (e) => {
   }
 
   // Cache-first for CSS, JS, fonts
-  if (
-    url.pathname.match(/\.(css|js|woff2?)$/) ||
-    url.pathname.includes('/assets/')
-  ) {
+  if (url.pathname.match(/\.(css|js|woff2?)$/)) {
     e.respondWith(
       caches.match(e.request).then((cached) => {
         const fetchPromise = fetch(e.request).then((res) => {
