@@ -1,6 +1,6 @@
-// 部署路径：GitHub Pages 子路径 /momo-space/
-const CACHE = 'kakimo-v3';
-const BASE = '/momo-space/';
+// 部署路径：Cloudflare Pages 根路径
+const CACHE = 'kakimo-v4';
+const BASE = '/';
 const CRITICAL = [
   BASE,
   BASE + 'works/',

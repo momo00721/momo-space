@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://momo00721.github.io',
-  base: '/momo-space/',
+  site: 'https://kakimo.pages.dev',
+  base: '/',
   build: {
     assets: 'assets',
   },
